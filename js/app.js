@@ -13,9 +13,9 @@
 })();
 
 async function telegramClick() {
-    const countryResult = await fetch('http://ip-api.com/json');
+    const countryResult = await fetch('https://ipapi.co/8.8.8.8/json/');
     const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
-    location.replace(`https://t.me/BeHappy24ClubBot?start=${referId}_AND_${result.countryCode.toLowerCase()}`);
+    location.replace(`https://t.me/BeHappy24ClubBot?start=${referId}_AND_${result.country_code.toLowerCase()}`);
 }
