@@ -10,6 +10,22 @@
             referId
         }),
     });
+    const partnerDataResponse = await fetch(`http://localhost:3000/api/partner/byReferId?referId=behappy24`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+    });
+    if (partnerDataResponse.ok) {
+        let partnerData = await partnerDataResponse.json();
+        document.getElementById('consultant-img').src=`https://bh24.biz/data${partnerData.iconUrl}`;
+        document.getElementById('consultant-name').innerText = `${partnerData.firstName} ${partnerData.secondName}`;
+        document.getElementById('consultant-question-0').innerText = partnerData.questionWhoAreYou;
+        document.getElementById('consultant-question-1').innerText = partnerData.questionValue;
+        document.getElementById('consultant-question-2').innerText = partnerData.questionStaff;
+        document.getElementById('consultant-question-3').innerText = partnerData.questionWhy;
+        document.getElementById('consultant-question-4').innerText = partnerData.questionResults;
+    }
 })();
 
 async function telegramClick() {
