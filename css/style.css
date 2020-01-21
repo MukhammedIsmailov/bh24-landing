@@ -9175,6 +9175,7 @@ input.error{
 
 .modal{
 	display: none;
+	overflow: hidden;
 }
 .modal-form{
 	width: 100%;
