@@ -33,5 +33,6 @@ async function telegramClick() {
     const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
-    location.replace(`https://t.me/BeHappy24ClubBot?start=${referId}_AND_${result.country_code.toLowerCase()}`);
+    const country = !!result.country ? result.country_code.toLowerCase() : 'ru';
+    location.replace(`https://t.me/BeHappy24ClubBot?start=${referId}_AND_${country}`);
 }
