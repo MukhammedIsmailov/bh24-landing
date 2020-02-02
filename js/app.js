@@ -10,7 +10,7 @@
             referId
         }),
     });
-    fillPartnerData();
+    fillPartnerData(referId);
     fillStatistics();
 })();
 
@@ -23,7 +23,7 @@ async function telegramClick() {
     location.replace(`https://t.me/behappy_test_bot?start=${referId}_AND_${country}`);
 }
 
-async function fillPartnerData() {
+async function fillPartnerData(referId) {
     const partnerDataResponse = await fetch(`https://server.bh24.biz/api/partner/byReferId?referId=${referId}`, {
         method: 'GET',
         headers: {
@@ -66,7 +66,7 @@ async function fillStatistics() {
             const registrationDay = registrationDate.getDate();
 
             dateHTMLItems[el].innerHTML = `${registrationHours}:${registrationMinutes}, ${registrationDay} ${registrationMonth} ${registrationYear} г.`;
-            flagHTMLItems[el].src = `https://server.bh24.biz/data${statistics[el].country}.png`;
+            flagHTMLItems[el].src = `https://server.bh24.biz/data/flags-landing/${statistics[el].country}.png`;
         }
     }
 
