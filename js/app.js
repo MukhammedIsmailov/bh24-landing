@@ -1,7 +1,7 @@
 (async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
-    fetch('https://server.bh24.biz/api/event/landing-visit', {
+    fetch('http://api.gohappy.team/api/event/landing-visit', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -24,7 +24,7 @@ async function telegramClick() {
 }
 
 async function fillPartnerData(referId) {
-    const partnerDataResponse = await fetch(`https://server.bh24.biz/api/partner/byReferId?referId=${referId}`, {
+    const partnerDataResponse = await fetch(`http://api.gohappy.team/api/partner/byReferId?referId=${referId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -32,7 +32,7 @@ async function fillPartnerData(referId) {
     });
     if (partnerDataResponse.ok) {
         let partnerData = await partnerDataResponse.json();
-        document.getElementById('consultant-img').src=`https://server.bh24.biz/data${partnerData.iconUrl}`;
+        document.getElementById('consultant-img').src=`http://api.gohappy.team/data${partnerData.iconUrl}`;
         document.getElementById('consultant-name').innerText = `${partnerData.firstName} ${partnerData.secondName}`;
         document.getElementById('consultant-question-0').innerText = partnerData.questionWhoAreYou;
         document.getElementById('consultant-question-1').innerText = partnerData.questionValue;
@@ -45,7 +45,7 @@ async function fillPartnerData(referId) {
 async function fillStatistics() {
     const width = window.innerWidth;
     const statisticsItemCount = width > 650 ? 12 : 8;
-    const statisticsDataResponse = await fetch(`https://server.bh24.biz/api/latest-registrations?limit=${statisticsItemCount}`,
+    const statisticsDataResponse = await fetch(`http://api.gohappy.team/api/latest-registrations?limit=${statisticsItemCount}`,
         { method: 'GET', headers: { 'Content-Type': 'application/json;charset=utf-8' } });
     if (statisticsDataResponse.ok) {
         let statisticsData = await statisticsDataResponse.json();
@@ -66,7 +66,7 @@ async function fillStatistics() {
             const registrationDay = registrationDate.getDate();
 
             dateHTMLItems[el].innerHTML = `${registrationHours}:${registrationMinutes}, ${registrationDay} ${registrationMonth} ${registrationYear} г.`;
-            flagHTMLItems[el].src = `https://server.bh24.biz/data/flags-landing/${statistics[el].country}.png`;
+            flagHTMLItems[el].src = `http://api.gohappy.team/data/flags-landing/${statistics[el].country}.png`;
         }
     }
 
