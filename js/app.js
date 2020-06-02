@@ -19,7 +19,7 @@ async function telegramClick() {
     const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
-    const country = !!result.country ? result.country_code.toLowerCase() : 'ua';
+    const country = !!result.country ? result.geoplugin_countryCode.toLowerCase() : 'ua';
     console.log(JSON.stringify(result));
     location.replace(`https://tele.gs/gohappy_bot?start=${referId}_AND_${country}`);
 }
