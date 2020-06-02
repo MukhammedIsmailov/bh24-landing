@@ -12,6 +12,10 @@
     });
     fillPartnerData(referId);
     fillStatistics();
+
+    const countryResult = await fetch('http://www.geoplugin.net/json.gp');
+    const result = await countryResult.json();
+    console.log(JSON.stringify(result));
 })();
 
 async function telegramClick() {
@@ -19,8 +23,7 @@ async function telegramClick() {
     const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
-    const country = !!result.country ? result.geoplugin_countryCode.toLowerCase() : 'ua';
-    console.log(JSON.stringify(result));
+    const country = !!result.geoplugin_countryCode ? result.geoplugin_countryCode.toLowerCase() : 'ua';
     location.replace(`https://tele.gs/gohappy_bot?start=${referId}_AND_${country}`);
 }
 
