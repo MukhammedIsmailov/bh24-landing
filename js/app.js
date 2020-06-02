@@ -15,12 +15,13 @@
 })();
 
 async function telegramClick() {
-    const countryResult = await fetch('https://ipapi.co/8.8.8.8/json/');
+    const countryResult = await fetch('http://www.geoplugin.net/json.gp');
     const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
-    const country = !!result.country ? result.country_code.toLowerCase() : 'ru';
-    location.replace(`https://tele.gs/BeHappy24ClubBot?start=${referId}_AND_${country}`);
+    const country = !!result.country ? result.country_code.toLowerCase() : 'ua';
+    console.log(JSON.stringify(result));
+    location.replace(`https://tele.gs/gohappy_bot?start=${referId}_AND_${country}`);
 }
 
 async function fillPartnerData(referId) {
