@@ -9377,6 +9377,7 @@ input.error{
 
 	background: url('../img/icon-close.svg');
 }
+
 @media all and (max-width: 576px){
 	.modal-msg .fancybox-close-small{
 		top: 14px;
@@ -9388,6 +9389,7 @@ input.error{
 		background-size: contain;
 	}
 }
+
 .modal-msg .fancybox-button svg{
 	display: none;
 }
@@ -9674,7 +9676,7 @@ input.error{
 }
 .banner-box__description{
 	font-family: 'GothamPro-Black';
-	font-size: 2.6rem;
+	font-size: 2rem;
 	font-weight: 400;
 	line-height: 3.2rem; 
 
@@ -9873,6 +9875,7 @@ input.error{
 		width: 100%;
 	}
 }
+
 .banner-video{
 	position: absolute;
 	z-index: 1;
