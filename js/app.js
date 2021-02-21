@@ -15,12 +15,11 @@
 })();
 
 async function telegramClick() {
-    //const countryResult = await fetch('https://api.myip.com/');
-    //const result = await countryResult.json();
+    const countryResult = await fetch('https://ipapi.co/json/');
+    const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
-    //const country = !!result.cc ? result.cc.toLowerCase() : 'ua';
-    const country = 'ua';
+    const country = result.country.toLowerCase();
     location.replace(`https://tele.gs/gohappy_bot?start=${referId}_AND_${country}`);
 }
 
