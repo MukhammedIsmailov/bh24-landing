@@ -20,7 +20,7 @@ async function telegramClick() {
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
     const country = result.country.toLowerCase();
-    location.replace(`https://tele.gs/gohappy_bot?start=${referId}_AND_${country}`);
+    location.replace(`https://t.me/gohappy_bot?start=${referId}_AND_${country}`);
 }
 
 async function fillPartnerData(referId) {
