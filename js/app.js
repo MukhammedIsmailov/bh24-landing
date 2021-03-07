@@ -15,7 +15,7 @@
 })();
 
 async function telegramClick() {
-    const countryResult = await fetch('https://ipapi.co/json/');
+    const countryResult = await fetch('https://api.gohappy.team/api/getCountryByIp');
     const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId');
