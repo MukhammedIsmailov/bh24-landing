@@ -54,3 +54,14 @@ html {
     height: 30px;
     display: block;
 }
+
+@media screen and (max-width: 768px) {
+    .card {
+        margin-top: 4vh;
+        width: 80vw;
+    }
+
+    .card p:first-child {
+        margin-top: 1vh;
+    }
+}
