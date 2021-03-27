@@ -1,0 +1,56 @@
+html {
+    background: url("../img/gallery-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.card {
+    width: 30vw;
+    height: auto;
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2vw;
+}
+
+.messengers {
+    display: flex;
+}
+
+.button {
+    display: block;
+    padding: 1vw;
+    width: 33%;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button:hover {
+    box-shadow: inset 4px -4px 255px 104px rgba(0,0,0,0.18);
+}
+
+.facebook {
+    background-color: #1B91FE;
+    border-radius: 5px 0 0 5px;
+}
+
+.viber {
+    background-color: #64298D;
+}
+
+.telegram {
+    background-color: #1BA7EB;
+    border-radius: 0 5px 5px 0;
+}
+
+.button img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
