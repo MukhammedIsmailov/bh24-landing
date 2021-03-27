@@ -55,7 +55,7 @@ html {
     display: block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
     .card {
         margin-top: 4vh;
         width: 80vw;
