@@ -1,19 +1,70 @@
+@font-face{
+    font-family: 'GothamPro';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('fonts/GothamPro/GothamPro.eot?#iefix') format('embedded-opentype'), url('fonts/GothamPro/GothamPro.otf') format('opentype'), url('fonts/GothamPro/GothamPro.woff') format('woff'), url('fonts/GothamPro/GothamPro.ttf') format('truetype'), url('fonts/GothamPro/GothamPro.svg#GothamPro') format('svg');
+}
+
+@font-face{
+    font-family: 'GothamPro-Bold';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('fonts/GothamPro-Bold/GothamPro-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/GothamPro-Bold/GothamPro-Bold.otf') format('opentype'), url('fonts/GothamPro-Bold/GothamPro-Bold.woff') format('woff'), url('fonts/GothamPro-Bold/GothamPro-Bold.ttf') format('truetype'), url('fonts/GothamPro-Bold/GothamPro-Bold.svg#GothamPro-Bold') format('svg');
+}
+
+@font-face{
+    font-family: 'GothamPro-Black';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('fonts/GothamPro-Black/GothamPro-Black.eot?#iefix') format('embedded-opentype'), url('fonts/GothamPro-Black/GothamPro-Black.otf') format('opentype'), url('fonts/GothamPro-Black/GothamPro-Black.woff') format('woff'), url('fonts/GothamPro-Black/GothamPro-Black.ttf') format('truetype'), url('fonts/GothamPro-Black/GothamPro-Black.svg#GothamPro-Black') format('svg');
+}
+
 html {
     background: url("../img/gallery-bg.jpg") no-repeat center center fixed;
     background-size: cover;
-    font-family: sans-serif;
+    font-family: GothamPro-Bold;
 }
 
 .card {
-    width: 30vw;
+    width: 40vw;
     height: auto;
-    margin-top: 25vh;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid white;
     border-radius: 10px;
     background-color: white;
     padding: 2vw;
+    text-align: justify;
+}
+
+.card h1 {
+    text-align: center;
+    font-size: 16pt;
+    text-transform: uppercase;
+    line-height: 30pt;
+}
+
+.card p {
+    font-size: 16pt;
+    text-transform: uppercase;
+    line-height: 20pt;
+}
+
+.card img {
+    width: 98%;
+}
+
+strong {
+    font-size: 20pt;
+}
+
+em {
+    color: #ff9700;
+    font-style: normal;
+    font-size: 22pt;
 }
 
 .messengers {
