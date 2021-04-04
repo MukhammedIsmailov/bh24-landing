@@ -12,7 +12,7 @@
         }),
     });
 
-    if (!referData.ok) window.close()
+    if (!referData.ok) document.write()
 
     fillPartnerData(referId);
     fillStatistics();
