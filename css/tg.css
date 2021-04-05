@@ -73,8 +73,8 @@ em {
 
 .button {
     display: block;
-    padding: 1vw;
     width: 33%;
+    padding: 3vw;
     color: white;
     text-decoration: none;
     text-align: center;
@@ -101,8 +101,8 @@ em {
 .button img {
     margin-left: auto;
     margin-right: auto;
-    width: 30px;
-    height: 30px;
+    width: 80px;
+    height: 80px;
     display: block;
 }
 
