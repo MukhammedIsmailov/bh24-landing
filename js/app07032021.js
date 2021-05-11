@@ -1,6 +1,6 @@
-(async () => {
+/*(async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const referId = urlParams.get('referId') ?? 'gohappy';
+    const id = urlParams.get('referId') ?? '13';
 
     const referData = await fetch('https://api.gohappy.team/api/event/landing-visit', {
         method: 'PUT',
@@ -16,19 +16,21 @@
 
     fillPartnerData(referId);
     fillStatistics();
-})();
+})();*/
 
 async function telegramClick() {
     const countryResult = await fetch('https://api.gohappy.team/api/getCountryByIp');
     const result = await countryResult.json();
     const urlParams = new URLSearchParams(window.location.search);
-    const referId = urlParams.get('referId') ?? 'gohappy';
+    const referId = urlParams.get('referId') ?? '13';
     const country = result.country.toLowerCase();
-    location.replace(`https://t.me/gohappy_bot?start=${referId}_AND_${country}`);
+    const startPayload = { rid: referId, cc: country, ts: 'landing1' };
+    const startData = btoa(JSON.stringify(startPayload));
+    location.replace(`https://t.me/gohappy_bot?start=${startData}`);
 }
 
 async function fillPartnerData(referId) {
-    const partnerDataResponse = await fetch(`https://api.gohappy.team/api/partner/byReferId?referId=${referId}`, {
+    const partnerDataResponse = await fetch(`https://api.gohappy.team/api/partner/byId?id=${referId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
