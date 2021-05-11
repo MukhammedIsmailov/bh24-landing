@@ -1,8 +1,8 @@
-/*(async () => {
+(async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('referId') ?? '13';
 
-    const referData = await fetch('https://api.gohappy.team/api/event/landing-visit', {
+    /*const referData = await fetch('https://api.gohappy.team/api/event/landing-visit', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -12,11 +12,11 @@
         }),
     });
 
-    if (!referData.ok) document.write()
+    if (!referData.ok) document.write()*/
 
-    fillPartnerData(referId);
-    fillStatistics();
-})();*/
+    await fillPartnerData(id);
+    await fillStatistics();
+})();
 
 async function telegramClick() {
     const countryResult = await fetch('https://api.gohappy.team/api/getCountryByIp');
@@ -29,8 +29,8 @@ async function telegramClick() {
     location.replace(`https://t.me/gohappy_bot?start=${startData}`);
 }
 
-async function fillPartnerData(referId) {
-    const partnerDataResponse = await fetch(`https://api.gohappy.team/api/partner/byId?id=${referId}`, {
+async function fillPartnerData(id) {
+    const partnerDataResponse = await fetch(`https://api.gohappy.team/api/partner/byId?id=${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
