@@ -14,28 +14,33 @@
 
     if (!referData.ok) document.write()
 
-    fillPartnerData(referId);
-    fillStatistics();
-})();
-
-async function telegramClick() {
-    const countryResult = await fetch('https://api.gohappy.team/api/getCountryByIp');
-    const result = await countryResult.json();
-    const urlParams = new URLSearchParams(window.location.search);
-    const referId = urlParams.get('referId') ?? 'gohappy';
-    const country = result.country.toLowerCase();
-    location.replace(`https://t.me/gohappy_bot?start=${referId}_AND_${country}`);
-}
-
-async function fillPartnerData(referId) {
     const partnerDataResponse = await fetch(`https://api.gohappy.team/api/partner/byReferId?referId=${referId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
     });
-    if (partnerDataResponse.ok) {
-        let partnerData = await partnerDataResponse.json();
+    const partnerData = await partnerDataResponse.json();
+    document
+        .getElementById('tg_button')
+        .addEventListener('click', async () => await telegramClick(partnerData.id))
+    await fillPartnerData(partnerData);
+    await fillStatistics();
+})();
+
+async function telegramClick(rid) {
+    const countryResult = await fetch('https://api.gohappy.team/api/getCountryByIp');
+    const result = await countryResult.json();
+    const urlParams = new URLSearchParams(window.location.search);
+    const cc = result.country.toLowerCase();
+    const ts = 'land1';
+    const startPayload = btoa(JSON.stringify({ rid, cc, ts }))
+    location.replace(`https://t.me/gohappy_bot?start=${startPayload}`);
+}
+
+async function fillPartnerData(partnerData) {
+
+    if (!!partnerData) {
         document.getElementById('consultant-img').src=`https://api.gohappy.team/data${partnerData.iconUrl}`;
         document.getElementById('consultant-name').innerText = `${partnerData.firstName} ${partnerData.secondName}`;
         document.getElementById('consultant-question-0').innerText = partnerData.questionWhoAreYou;
