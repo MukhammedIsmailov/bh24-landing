@@ -1,4 +1,4 @@
-(async () => {
+document.addEventListener('DOMContentLoaded',async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const referId = urlParams.get('referId') ?? 'gohappy';
 
@@ -26,7 +26,7 @@
         .addEventListener('click', async () => await telegramClick(partnerData.id))
     await fillPartnerData(partnerData);
     await fillStatistics();
-})();
+});
 
 async function telegramClick(rid) {
     const countryResult = await fetch('https://api.gohappy.team/api/getCountryByIp');
