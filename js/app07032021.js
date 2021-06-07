@@ -54,7 +54,7 @@ async function fillPartnerData(partnerData) {
 async function fillStatistics() {
     const width = window.innerWidth;
     const statisticsItemCount = width > 650 ? 12 : 8;
-    const statisticsDataResponse = await fetch(`https://bot.gohappy.team/users/all?referId=20&search=&contact=&noncooperation=&client=&partner=&telegram=&facebook=&dateFrom=1&dateTo=9999999999`,
+    const statisticsDataResponse = await fetch(`https://bot.gohappy.team/users/all?search=&contact=&noncooperation=&client=&partner=&telegram=&facebook=&dateFrom=1&dateTo=9999999999`,
         { method: 'GET', headers: { 'Content-Type': 'application/json;charset=utf-8' } });
     if (statisticsDataResponse.ok) {
         let statisticsData = await statisticsDataResponse.json();
