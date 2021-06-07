@@ -54,20 +54,20 @@ async function fillPartnerData(partnerData) {
 async function fillStatistics() {
     const width = window.innerWidth;
     const statisticsItemCount = width > 650 ? 12 : 8;
-    const statisticsDataResponse = await fetch(`https://api.gohappy.team/api/latest-registrations?limit=${statisticsItemCount}`,
+    const statisticsDataResponse = await fetch(`https://bot.gohappy.team/users/all?referId=20&search=&contact=&noncooperation=&client=&partner=&telegram=&facebook=&dateFrom=1&dateTo=9999999999`,
         { method: 'GET', headers: { 'Content-Type': 'application/json;charset=utf-8' } });
     if (statisticsDataResponse.ok) {
         let statisticsData = await statisticsDataResponse.json();
-        const count = parseInt(statisticsData.count);
-        const statistics = statisticsData.registrations;
+        const count = statisticsData.length;
+        const statistics = statisticsData;
         document.getElementById('count').innerText = `Всего получили курс: ${count} чел.`;
         const dateHTMLItems = document.getElementsByClassName('registration-table__title');
         const flagHTMLItems = document.getElementsByClassName('registration-table__flag-img');
 
         const localizeMonth = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сенятбря', 'октября', 'ноября', 'декабря'];
 
-        for(let el = 0; el < count; el++) {
-            const registrationDate = new Date(statistics[el].createdDate);
+        for(let el = 0; el < (count >= 12 ? 12 : count); el++) {
+            const registrationDate = new Date(statistics[el].subscriptionDate);
             const registrationHours = addZero(2, registrationDate.getHours());
             const registrationMinutes = addZero(2, registrationDate.getMinutes());
             const registrationYear = registrationDate.getFullYear();
