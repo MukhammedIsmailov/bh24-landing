@@ -59,7 +59,8 @@ async function fillStatistics() {
     if (statisticsDataResponse.ok) {
         let statisticsData = await statisticsDataResponse.json();
         const count = statisticsData.length;
-        const statistics = statisticsData;
+        const statistics = statisticsData.sort((a, b) =>
+            +new Date(b.subscriptionDate) - +new Date(a.subscriptionDate));
         document.getElementById('count').innerText = `Всего получили курс: ${count} чел.`;
         const dateHTMLItems = document.getElementsByClassName('registration-table__title');
         const flagHTMLItems = document.getElementsByClassName('registration-table__flag-img');
