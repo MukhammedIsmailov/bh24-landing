@@ -21,21 +21,21 @@ document.addEventListener('DOMContentLoaded',async () => {
         },
     });
     const partnerData = await partnerDataResponse.json();
+    const link = await getTgLink(partnerData.id);
     document
         .getElementById('tg_button')
-        .addEventListener('click', async () => await telegramClick(partnerData.id))
+        .setAttribute('href', link);
     await fillPartnerData(partnerData);
     await fillStatistics();
 });
 
-async function telegramClick(rid) {
+async function getTgLink(rid) {
     const countryResult = await fetch('https://api.gohappy.team/api/getCountryByIp');
     const result = await countryResult.json();
-    const urlParams = new URLSearchParams(window.location.search);
     const cc = result.country.toLowerCase();
     const ts = 'land1';
     const startPayload = btoa(JSON.stringify({ rid, cc, ts }))
-    location.replace(`https://t.me/gohappy_bot?start=${startPayload}`);
+    return `https://t.me/gohappy_bot?start=${startPayload}`;
 }
 
 async function fillPartnerData(partnerData) {
