@@ -2,6 +2,15 @@
 <html lang="ru">
 
 <head>
+  <script>
+    window.onload = function () {
+      document.body.classList.add('loaded_hiding');
+      window.setTimeout(function () {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loaded_hiding');
+      }, 500);
+    }
+  </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172460312-1"></script>
   <script>
@@ -41,6 +50,12 @@
 </head>
 
 <body>
+  <div class="preloader">
+    <div class="preloader__row">
+      <div class="preloader__item"></div>
+      <div class="preloader__item"></div>
+    </div>
+  </div>
   <main class="content">
     <section class="section banner-section" id="banner" style="background-image: url(img/banner-bg.jpg);">
       <div class="banner-video" style="background-image: url(img/notebook.png)">
@@ -614,7 +629,7 @@
     <h6 class="modal-form__title">Спасибо!</h6>
     <div class="modal-form__text">Мы свяжемся с вами в ближайшее время.</div>
   </div>
+  <script src="js/bundle07032021.js?v=3c24ae042c3c8977fa6f5e04292381bf"></script>
+  <script src="js/app07032021.js"></script>
 </body>
-<script src="js/bundle07032021.js?v=3c24ae042c3c8977fa6f5e04292381bf"></script>
-<script src="js/app07032021.js"></script>
 </html>
