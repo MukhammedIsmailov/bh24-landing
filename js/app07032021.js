@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const referId = urlParams.get('referId') ?? 'gohappy';
+    const referId = urlParams.get('referId') || 'gohappy';
 
     const referData = await fetch('https://api.gohappy.team/api/event/landing-visit', {
         method: 'PUT',
