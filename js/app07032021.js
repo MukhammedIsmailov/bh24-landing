@@ -54,7 +54,7 @@ async function fillPartnerData(partnerData) {
 async function fillStatistics() {
     const width = window.innerWidth;
     const statisticsItemCount = width > 650 ? 12 : 8;
-    const statisticsDataResponse = await fetch(`https://bot.gohappy.team/users/all?search=&contact=&noncooperation=&client=&partner=&telegram=&facebook=&dateFrom=1&dateTo=9999999999`,
+    const statisticsDataResponse = await fetch(`https://bot2.gohappy.team/users-mailings?mailingId=8`,
         { method: 'GET', headers: { 'Content-Type': 'application/json;charset=utf-8' } });
     if (statisticsDataResponse.ok) {
         let statisticsData = await statisticsDataResponse.json();
@@ -65,7 +65,7 @@ async function fillStatistics() {
         const dateHTMLItems = document.getElementsByClassName('registration-table__title');
         const flagHTMLItems = document.getElementsByClassName('registration-table__flag-img');
 
-        const localizeMonth = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сенятбря', 'октября', 'ноября', 'декабря'];
+        const localizeMonth = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
         for(let el = 0; el < (count >= 12 ? 12 : count); el++) {
             const registrationDate = new Date(statistics[el].subscriptionDate);
@@ -76,7 +76,7 @@ async function fillStatistics() {
             const registrationDay = registrationDate.getDate();
 
             dateHTMLItems[el].innerHTML = `${registrationHours}:${registrationMinutes}, ${registrationDay} ${registrationMonth} ${registrationYear} г.`;
-            flagHTMLItems[el].src = `https://api.gohappy.team/data/flags-landing/${statistics[el].country}.png`;
+            flagHTMLItems[el].src = `https://api.gohappy.team/data/flags-landing/${statistics[el].user.country}.png`;
         }
     }
 
