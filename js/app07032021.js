@@ -34,7 +34,7 @@ async function getTgLink(rid) {
     const result = await countryResult.json();
     const cc = result.country.toLowerCase();
     const ts = 'land1';
-    const startPayload = btoa(JSON.stringify({ rid, cc, ts }))
+    const startPayload = btoa(JSON.stringify({ rid, cc, mid: 8 }))
     return `https://t.me/gohappy_bot?start=${startPayload}`;
 }
 
